@@ -1,5 +1,10 @@
 <template>
     <div class="global_container">
-        <span>Aplicación para generar tickets</span>
+        <Ticket />
+        <Ticket />
+        <Ticket />
     </div>
 </template>
+<script setup>
+import Ticket from './components/Ticket.vue';
+</script>
