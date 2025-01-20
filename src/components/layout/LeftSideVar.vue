@@ -1,7 +1,7 @@
 <template>
-    <div class="left-side-var__container">
+    <aside class="left-side-var__container col-span-3">
         Holamundo
-    </div>
+    </aside>
 </template>
 <style scoped lang="sass">
 .left-side-var__container

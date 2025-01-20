@@ -9,7 +9,7 @@
     </div>
 </template>
 <script setup>
-
+import { Button } from 'primevue';
 </script>
 <style scoped lang="sass">
 .ticket__container
