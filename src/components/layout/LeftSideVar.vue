@@ -1,10 +1,16 @@
 <template>
-    <aside class="left-side-var__container col-span-3">
+    <aside class="left-side-var__container p-8" :class="class">
         Holamundo
     </aside>
 </template>
+<script setup>
+const {  } = defineProps({
+    class: {
+        type: String,
+        default: ''
+    }
+})
+</script>
 <style scoped lang="sass">
-.left-side-var__container
-    width: 300px
-    background-color: red
+
 </style>
