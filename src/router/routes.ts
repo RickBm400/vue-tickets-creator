@@ -9,6 +9,10 @@ export const routes = [
         path: '',
         component: () => import('@/components/Ticket.vue'),
       },
+      {
+        path: '/events',
+        component: () => import('@/components/Events.vue'),
+      },
     ],
   },
 ];

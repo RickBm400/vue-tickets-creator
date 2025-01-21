@@ -1,9 +1,14 @@
 // @ts-nocheck
-import { createRouter, createMemoryHistory } from 'vue-router';
+import {
+  createRouter,
+  createWebHistory,
+  createMemoryHistory,
+} from 'vue-router';
 import { routes } from './routes';
 
+// createMemoryHistory
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 });
 

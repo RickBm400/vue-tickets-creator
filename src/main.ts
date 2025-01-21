@@ -6,4 +6,4 @@ import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import './sass/index.sass';
 
-createApp(App).use(router).use(PrimeVue).mount('#app');
+createApp(App).use(PrimeVue).use(router).mount('#app');
