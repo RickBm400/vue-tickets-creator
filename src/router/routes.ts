@@ -3,15 +3,15 @@
 export const routes = [
   {
     path: '/',
-    component: () => import('@/dashboard/UserDashboard.vue'),
+    component: () => import('@/pages/dashboard/UserDashboard.vue'),
     children: [
       {
         path: '',
-        component: () => import('@/components/Ticket.vue'),
+        component: () => import('@/pages/dashboard/pages/TicketsPage.vue'),
       },
       {
         path: '/events',
-        component: () => import('@/components/Events.vue'),
+        component: () => import('@/pages/dashboard/pages/Events.vue'),
       },
     ],
   },
