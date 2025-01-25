@@ -3,13 +3,13 @@ interface options {
   route: string;
 }
 
-export const generalMemberSBOptions: Array<options> = [
+export const generalMemberSBOpts: Array<options> = [
   {
     label: 'Tickets',
     route: '/',
   },
   {
-    label: 'Eventos',
+    label: 'Mis eventos',
     route: '/events',
   },
   {
@@ -21,7 +21,7 @@ export const generalMemberSBOptions: Array<options> = [
     route: '/user-notifications',
   },
   {
-    label: 'Eventos',
+    label: 'Eventos disponibles',
     route: '/available-events',
   },
   {

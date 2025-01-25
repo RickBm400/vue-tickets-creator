@@ -7,7 +7,7 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   plugins: [vue()],
   server: {
-    port: 8080,
+    port: 8081,
   },
   css: {
     preprocessorOptions: {

@@ -11,8 +11,12 @@ export const routes = [
       },
       {
         path: '/events',
-        component: () => import('@/pages/dashboard/pages/Events.vue'),
+        component: () => import('@/pages/dashboard/pages/UserEvents.vue'),
       },
+      {
+        path: '/available-events',
+        component: () => import('@/pages/dashboard/pages/Events.vue')
+      }
     ],
   },
 ];
