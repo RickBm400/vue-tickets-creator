@@ -1,6 +1,6 @@
 <script setup>
-import { RouterView } from 'vue-router';
-import LeftSideVar from '@/components/layout/LeftSideVar.vue';
+import { RouterView } from 'vue-router'
+import LeftSideVar from '@/components/layout/LeftSideVar.vue'
 </script>
 <template>
     <div class="grid grid-cols-24 gap-8 w-screen h-screen">
@@ -10,3 +10,4 @@ import LeftSideVar from '@/components/layout/LeftSideVar.vue';
         </main>
     </div>
 </template>
+
