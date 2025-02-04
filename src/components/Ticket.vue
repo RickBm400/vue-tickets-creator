@@ -48,7 +48,6 @@ const cardBackground = ref(ticketBackground)
 </template>
 
 <style scoped lang="sass">
-
 #divider
   border: 2px solid gray
   heigh: 100%
@@ -68,9 +67,4 @@ const cardBackground = ref(ticketBackground)
   &-user-info
     @include bebas-neue(2rem)
     color: white
-
-// .ticket-image-format
-//   background-size: cover
-//   background-repeat: no-repeat
-//   backgroun-position: center
 </style>
