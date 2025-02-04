@@ -1,39 +1,66 @@
+<script setup>
+import { Button } from 'primevue'
+import { ref, defineProps } from 'vue'
+
+const { ticketBackground } = defineProps({
+    ticketBackground: {
+        type: String,
+        default: undefined,
+    },
+})
+
+const userName = ref('Ricardo Bm')
+const cardBackground = ref(ticketBackground)
+</script>
+
 <template>
     <div class="ticket__container gap-4 flex flex-row">
-        <div class="ticket__container-user--section basis-2/3 p-4">
-            Esta es la parte de la imagen
+        <div class="ticket__container-event-info basis-2/3">
+            <div
+                class="h-2/3 p-4 ticket-image-format"
+                :style="{
+                    background: `url(${ticketBackground})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }"
+            >
+                ola
+            </div>
+            <div class="h-1/3 bg-red-50 p-4 flex">
+                <section class="w-3/4 px-2">
+                    Esto será para el nombre del turismo
+                </section>
+                <div id="divider"></div>
+                <div class="w-1/4 px-2">
+                    <span> Hola </span>
+                </div>
+            </div>
         </div>
-        <div class="basis-1/3 bg-green-50 p-4 bebas">
-      <span class="">{{ userName }}</span> 
+        <div class="basis-1/3 bg-red-500 p-4">
+            <span class="ticket__container-user-info">{{ userName }}</span>
         </div>
     </div>
 </template>
-<script setup>
-import { Button } from 'primevue'
-import { ref } from 'vue'
 
-const userName = ref('Ricardo Bm')
-</script>
 <style scoped lang="sass">
-.bebas
-  @include bebas-neue(2)
+
+#divider
+  border: 2px solid gray
+  heigh: 100%
 
 .ticket__container
   width: 900px
   height: 300px
-  border-radius: 12px
+  border-radius: 8px
   overflow: hidden
-  &-user--section
-    background: url("../../public/saint_frank.png")
-    background-size: cover
-    background-repeat: no-repeat
-    backgroun-position: center
-  &-left--card
-      position: relative
-      background-color: #578E7E
-      height: 100%
-      width: 70%
-      border-radius: 8px
-      padding: 16px
-      font-size: 2rem
+  &-event-info
+       @include bebas-neue(1rem)
+  &-user-info
+    @include bebas-neue(2rem)
+
+// .ticket-image-format
+//   background-size: cover
+//   background-repeat: no-repeat
+//   backgroun-position: center
 </style>
