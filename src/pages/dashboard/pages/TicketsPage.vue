@@ -4,6 +4,5 @@ import Ticket from '@/components/Ticket.vue'
 <template>
     <div class="w-full h-full py-12">
         <Ticket/>
-        <Ticket/>
     </div>
 </template>
