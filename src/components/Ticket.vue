@@ -49,7 +49,7 @@ const cardBackground = ref(ticketBackground)
 
 <style scoped lang="sass">
 #divider
-  border: 2px solid gray
+  border: 1px solid gray
   heigh: 100%
 
 .ticket__container
