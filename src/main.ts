@@ -12,6 +12,10 @@ createApp(App)
             preset: Aura,
             options: {
                 darkModeSelector: false,
+                cssLayer: {
+                    name: 'primevue',
+                    order: 'theme, base, primevue',
+                },
             },
         },
     })

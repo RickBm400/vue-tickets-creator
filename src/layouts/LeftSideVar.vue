@@ -6,7 +6,12 @@ import { generalMemberSBOpts } from './utils/sideBarLinks'
 // primevue components
 import Menu from 'primevue/menu'
 // component props
-const { rootClass } = defineProps(['rootClass'])
+const { rootClass } = defineProps({
+    rootClass: {
+        type: String,
+        default: '',
+    },
+})
 
 const dashboardPages = ref([...generalMemberSBOpts])
 </script>
@@ -22,7 +27,7 @@ const dashboardPages = ref([...generalMemberSBOpts])
             }"
         >
             <template #item="{ item, props }">
-                <RouterLink custom :to="item.route" v-slot="{ href, navigate }">
+                <RouterLink v-slot="{ href, navigate }" :to="item.route" custom>
                     <a
                         v-ripple
                         :href="href"
