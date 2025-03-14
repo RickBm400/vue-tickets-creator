@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=secondary-font:wght@100..900&display=swap')
 
-@mixin bebas-neue($size: null)
+@mixin secondary-font($size: null)
   font-family: "Bebas Neue", sans-serif, serif
   font-weight: 400
   font-style: normal
   @if $size != null
     font-size: #{$size}
 
-@mixin outfit
+@mixin primary-font
   font-family: "Outfit", serif
+  // font-family: "DM Sans", sans-serif
   font-optical-sizing: auto
   font-style: normal

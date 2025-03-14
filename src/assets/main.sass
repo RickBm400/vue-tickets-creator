@@ -1,0 +1,16 @@
+@use 'primecomponents/export'
+@forward './presets/_fonts.sass'
+@use './presets/_fonts' as *
+@layer tailwind-base, primevue, tailwind-utilities
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+*
+    @include primary-font
+
+:root
+    --primary-color: #1F1F1F
+    --inputs-height: 48px
+    --radius: 14px
+    --white-text: white

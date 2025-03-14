@@ -1,0 +1,10 @@
+@forward '../presets/fonts'
+@use '../presets/_fonts' as mixins
+
+.p-button-primary
+    background-color: #1F1F1f
+    border: 0px
+    height: var(--inputs-height)
+    color: var(--white-text)
+    border-radius: var(--radius)
+    @include mixins.primary-font

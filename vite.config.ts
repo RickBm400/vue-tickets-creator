@@ -17,15 +17,6 @@ export default defineConfig({
     server: {
         port: 8081,
     },
-    css: {
-        preprocessorOptions: {
-            sass: {
-                additionalData: `
-          @use "@/sass/_styles.sass" as *
-        `,
-            },
-        },
-    },
     resolve: {
         alias: {
             '@': fileURLToPath(new URL('./src', import.meta.url)),
