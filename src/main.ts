@@ -4,14 +4,19 @@ import router from './router'
 import { createApp } from 'vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
-import './sass/index.sass'
+import './assets/main.sass'
 
 createApp(App)
     .use(PrimeVue, {
         theme: {
             preset: Aura,
             options: {
+                prefix: 'p',
                 darkModeSelector: false,
+                cssLayer: {
+                    name: 'primevue',
+                    order: 'theme, base, primevue, main.sass',
+                },
             },
         },
     })

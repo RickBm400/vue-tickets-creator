@@ -58,13 +58,10 @@ const cardBackground = ref(ticketBackground)
   border-radius: 8px
   overflow: hidden
   &-event-info
-    @include bebas-neue(1rem)
     .name
       font-size: 2rem
     .description
-      @include outfit
       font-size: 12px
   &-user-info
-    @include bebas-neue(2rem)
     color: white
 </style>

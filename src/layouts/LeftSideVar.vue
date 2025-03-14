@@ -48,6 +48,5 @@ const dashboardPages = ref([...generalMemberSBOpts])
 </template>
 <style scoped lang="sass">
 .menu
-    @include outfit
     cursor: pointer
 </style>
