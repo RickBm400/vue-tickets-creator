@@ -5,8 +5,10 @@ import { createApp } from 'vue'
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
 import './assets/main.sass'
+import axios from './plugins/axios'
 
 createApp(App)
+    .use(axios)
     .use(PrimeVue, {
         theme: {
             preset: Aura,
