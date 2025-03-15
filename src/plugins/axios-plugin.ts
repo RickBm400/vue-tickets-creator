@@ -9,8 +9,10 @@ const instance = axios.create({
     },
 })
 
+export const axiosInstance = instance
+
 export default {
-    install: (app) => {
+    install(app, options) {
         app.config.globalProperties.$axios = instance
         app.provide('axios', instance)
     },

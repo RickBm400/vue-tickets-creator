@@ -2,19 +2,14 @@
 import { Form } from '@primevue/forms'
 import { reactive, inject } from 'vue'
 import { InputText, Button } from 'primevue'
+import { login } from '@/services/auth'
 
-const axios = inject('axios')
-
-async function login() {
+async function $_loginUser() {
     try {
-        let response = await axios({
-            method: 'POST',
-            url: '/auth/login',
-            data: {
-                email: 'rjbm29gmail.com',
-                password: 'Test1234',
-            },
-        })
+    let response = await login({
+        email: 'rjbm29gmail.com',
+        password: 'Test1234'
+    })
     } catch (error) {
         console.log(error)
     }
@@ -45,7 +40,7 @@ async function login() {
                     <InputText type="text" placeholder="email" />
                     <InputText type="text" placeholder="password" />
                     <span class="text-end reset-password-link"> Forgot password? </span>
-                    <Button type="submit" label="login" @click="login()"></Button>
+                    <Button type="submit" label="login" @click="$_loginUser()"></Button>
                     <p class="regist-link">Not account yet? <span>Register</span></p>
                 </div>
             </Form>
