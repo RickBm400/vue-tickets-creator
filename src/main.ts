@@ -22,9 +22,6 @@ const primeVueTheme = {
     },
 }
 
-createApp(App)
-    .use(createPinia())
-    .use(PrimeVue, primeVueTheme)
-    .use(axiosPlugin)
-    .use(router)
-    .mount('#app')
+const pinia = createPinia()
+
+createApp(App).use(pinia).use(PrimeVue, primeVueTheme).use(axiosPlugin).use(router).mount('#app')

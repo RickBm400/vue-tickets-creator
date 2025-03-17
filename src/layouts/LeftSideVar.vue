@@ -41,12 +41,9 @@ const dashboardPages = ref([...generalMemberSBOpts])
                 </RouterLink>
             </template>
         </Menu>
-        <div>
-            <Button label="Holamundo"></Button>
-        </div>
     </aside>
 </template>
 <style scoped lang="sass">
-.menu
-    cursor: pointer
+.left-side-var__container
+    background-color: var(--background-color)
 </style>
