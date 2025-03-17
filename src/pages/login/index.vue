@@ -3,22 +3,32 @@ import { Form } from '@primevue/forms'
 import { reactive, inject } from 'vue'
 import { InputText, Button, IconField, InputIcon } from 'primevue'
 import { logIn, signUp } from '@/services/auth'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 
 let passwordToggle = ref(true)
 let formSwitch = ref(true)
-let formData = ref({
+
+const router = useRouter()
+
+// forms initial state
+let formDataInitialState = {
     email: '',
     password: '',
-})
-
-let SUFormData = ref({
+}
+let SUFormDataInitialState = {
     user_name: '',
     nick_name: '',
     email: '',
     confirmEmail: '',
     password: '',
-})
+}
+
+// log in form data object
+let formData = ref({ ...formDataInitialState })
+
+// sign up form data object
+let SUFormData = ref({ ...SUFormDataInitialState })
 
 function switchForms() {
     return (formSwitch.value = !formSwitch.value)
@@ -39,8 +49,10 @@ function passord_typeAndIcon() {
 const $_loginUser = async ({ valid, values }) => {
     try {
         if (!valid) throw new Error('Incorrect Password')
-        let response = await logIn(values)
-        console.log(response)
+        const response = await logIn(values)
+        if (response) {
+            router.go('/')
+        }
     } catch (error) {
         console.log(error)
     }
@@ -95,9 +107,16 @@ const $_registUser = async ({ valid, values }) => {
                 </IconField>
                 <span class="text-end reset-password-link"> Forgot password? </span>
                 <Button type="submit" label="login" />
-                <p class="regist-link">Not account yet? <span class="form-switch" @click="switchForms">Register</span></p>
+                <p class="regist-link">
+                    Not account yet? <span class="form-switch" @click="switchForms">Register</span>
+                </p>
             </Form>
-            <Form v-else class="w-full px-4 flex flex-col space-y-4" :initial-values="SUFormData" @submit="$_registUser">
+            <Form
+                v-else
+                class="w-full px-4 flex flex-col space-y-4"
+                :initial-values="SUFormData"
+                @submit="$_registUser"
+            >
                 <InputText name="user_name" placeholder="Name" />
                 <InputText name="nick_name" placeholder="User name" />
                 <InputText name="email" placeholder="Email" />
@@ -114,7 +133,10 @@ const $_registUser = async ({ valid, values }) => {
                     />
                 </IconField>
                 <Button type="submit" label="Sign Up" />
-                <p class="regist-link">Already have an account? <span class="form-switch" @click="switchForms">Login</span></p>
+                <p class="regist-link">
+                    Already have an account?
+                    <span class="form-switch" @click="switchForms">Login</span>
+                </p>
             </Form>
         </div>
     </div>
@@ -146,5 +168,4 @@ const $_registUser = async ({ valid, values }) => {
         font-weight: 500
         &:hover
             color: var(--primary-color)
-
 </style>
