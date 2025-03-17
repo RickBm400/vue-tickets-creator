@@ -7,3 +7,11 @@ export const logIn = async (payload: any): Promise<any> => {
         console.log(error)
     }
 }
+
+export const signUp = async (payload: any): Promise<any> => {
+    try {
+        return await axios.post('/auth/sign-up', payload)
+    } catch (error) {
+        console.log(error)
+    }
+}
