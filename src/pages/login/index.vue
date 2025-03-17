@@ -1,15 +1,33 @@
 <script setup>
 import { Form } from '@primevue/forms'
 import { reactive, inject } from 'vue'
-import { InputText, Button } from 'primevue'
-import { login } from '@/services/auth'
+import { InputText, Button, IconField, InputIcon } from 'primevue'
+import { logIn } from '@/services/auth'
+import { ref } from 'vue'
 
-async function $_loginUser() {
+let passwordToggle = ref(true)
+let formData = ref({
+    email: '',
+    password: ''
+})
+
+function handlePasswordEye() {
+    return passwordToggle.value = !passwordToggle.value
+}
+
+function passord_typeAndIcon() {
+    const pSwitch = passwordToggle.value
+    return {
+        type: pSwitch ? 'password' : 'text',
+        icon: pSwitch ? 'pi-eye-slash' : 'pi-eye'
+    }
+}
+
+const $_loginUser = async({ valid, values }) => {
     try {
-    let response = await login({
-        email: 'rjbm29gmail.com',
-        password: 'Test1234'
-    })
+        if (!valid) throw new Error('Incorrect Password')
+        let response = await logIn(values)
+        console.log(response)
     } catch (error) {
         console.log(error)
     }
@@ -35,12 +53,15 @@ async function $_loginUser() {
             </div>
         </div>
         <div class="col-span-4 flex items-center">
-            <Form class="w-full px-4">
+            <Form class="w-full px-4" :initial-values="formData" @submit="$_loginUser">
                 <div class="flex flex-col space-y-4">
-                    <InputText type="text" placeholder="email" />
-                    <InputText type="text" placeholder="password" />
+                    <InputText name="email" type="text" placeholder="email" />
+                    <IconField>
+                        <InputText name="password" :type="passord_typeAndIcon().type" placeholder="password" />
+                        <InputIcon class="pi" :class="passord_typeAndIcon().icon" @click="handlePasswordEye"/>
+                    </IconField>
                     <span class="text-end reset-password-link"> Forgot password? </span>
-                    <Button type="submit" label="login" @click="$_loginUser()"></Button>
+                    <Button type="submit" label="login"></Button>
                     <p class="regist-link">Not account yet? <span>Register</span></p>
                 </div>
             </Form>
