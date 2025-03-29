@@ -1,67 +1,50 @@
 <script setup>
-import { Button } from 'primevue'
-import { ref, defineProps } from 'vue'
-
-const { ticketBackground } = defineProps({
-    ticketBackground: {
-        type: String,
-        default: undefined,
-    },
-    name: String,
-    description: String,
-    date: String,
-})
-
-const userName = ref('Ricardo Bm')
-const cardBackground = ref(ticketBackground)
+import Card from 'primevue/card'
 </script>
-
 <template>
-    <div class="ticket__container flex flex-row">
-        <div class="ticket__container-event-info basis-2/3">
-            <div
-                class="h-2/3 p-4"
-                :style="{
-                    background: `url(${ticketBackground})`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }"
-            ></div>
-            <div class="h-1/3 bg-red-50 p-4 flex">
-                <section class="w-3/4 pr-2">
-                    <h4 class="name">
-                        {{ name }}
-                    </h4>
-                    <p class="description">
-                        {{ description }}
-                    </p>
-                </section>
-                <div id="divider"></div>
-                <div class="w-1/4 px-2">This is for time</div>
+    <Card
+        class="ticket-card grid grid-flow-col grid-cols-3"
+        :pt="{
+            body: {
+                class: 'p-0 col-span-2',
+            },
+        }"
+    >
+        <template #header>
+            <img class="col-span-1" alt="ticket_image" src="/login/login_background.jpg" />
+        </template>
+        <template #content>
+            <div class="event">
+                <h3 class="event-title">
+                    Don Toliver
+                </h3>
+                <p class="event-description">
+                    Sacramento - California
+                </p>
             </div>
-        </div>
-        <div class="basis-1/3 bg-black p-4">
-            <span class="ticket__container-user-info">{{ userName }}</span>
-        </div>
-    </div>
+        </template>
+    </Card>
 </template>
-
 <style scoped lang="sass">
-#divider
-  border: 1px solid gray
-  heigh: 100%
+@use '../assets/presets/_fonts' as *
 
-.ticket__container
-  width: 900px
-  height: 300px
-  border-radius: 8px
-  overflow: hidden
-  &-event-info
-    .name
-      font-size: 2rem
-    .description
-      font-size: 12px
-  &-user-info
-    color: white
+$ticket-height: 196px
+
+.ticket-card
+    height: $ticket-height
+    padding: 0px
+    overflow: hidden
+    .event
+        padding: 24px
+        &-title
+            font-size: 40px
+            line-height: 2rem
+            @include secondary-font
+        &-description
+            font-size: 14px
+            color: gray
+    img
+        width: 100%
+        height: $ticket-height
+        object-fit: fit
 </style>
