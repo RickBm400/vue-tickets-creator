@@ -28,7 +28,7 @@ import Card from 'primevue/card'
 <style scoped lang="sass">
 @use '../assets/presets/_fonts' as *
 
-$ticket-height: 196px
+$ticket-height: 170px
 
 .ticket-card
     height: $ticket-height

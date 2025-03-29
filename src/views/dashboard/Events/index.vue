@@ -13,11 +13,11 @@ locale.value = 'en'
 const _userName = 'Ricardo'
 </script>
 <template>
-    <div id="container" class="h-full grid grid-rows-[64px_1fr]">
-        <nav>navigator</nav>
+    <div id="container" class="h-full grid grid-rows-[64px_1fr] px-8 py-4">
+        <nav></nav>
         <div class="dashboard-content grid grid-flow-col grid-cols-10">
-            <div class="events-content col-span-7 space-y-4">
-                <Card class="welcome--card">
+            <div class="col-span-7 space-y-4 flex flex-col">
+                <Card class="welcome--card flex-none">
                     <template #title>
                         <h1 class="welcome--title">
                             {{ t('message.goodMorning') }} <br />
@@ -27,10 +27,18 @@ const _userName = 'Ricardo'
                             {{ t('content.titleContent') }}
                         </p>
                     </template>
-                    <template></template>
                 </Card>
-                <section class="recent--tickets">
-                    <Ticket />
+                <section class="recent--tickets grow flex flex-col h-[400px]">
+                    <h2 class="section-title">Recent Events</h2>
+                    <div class="tickets-list space-y-4 grow overflow-y-scroll">
+                        <Ticket />
+                        <Ticket />
+                        <Ticket />
+                        <Ticket />
+                        <Ticket />
+                        <Ticket />
+                        <Ticket />
+                    </div>
                 </section>
             </div>
             <div class="dashboard-utils col-span-3"></div>
@@ -39,7 +47,8 @@ const _userName = 'Ricardo'
 </template>
 <style scoped lang="sass">
 .welcome--title
-    font-size: 56px
+    font-size: 3.5rem
+    line-height: 3rem
 .welcome--card
     color: white
     line-height: 56px
@@ -49,4 +58,8 @@ const _userName = 'Ricardo'
     background: linear-gradient(to right, #000000, #842C2C)
     p
         font-weight: 200
+        font-size: 1rem
+.section-title
+    font-size: 1.5rem
+    font-weight: 500
 </style>

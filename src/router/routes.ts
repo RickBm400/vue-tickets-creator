@@ -3,27 +3,17 @@
 export const routes = [
     {
         path: '/',
-        component: () => import('@/pages/dashboard/UserDashboard.vue'),
+        component: () => import('@/views/dashboard/UserDashboard.vue'),
         children: [
             {
                 path: '',
-                component: () => import('@/pages/dashboard/pages/TicketsPage.vue'),
-                meta: { requiresAuth: true },
-            },
-            {
-                path: '/events',
-                component: () => import('@/pages/dashboard/pages/UserEvents.vue'),
-                meta: { requiresAuth: true },
-            },
-            {
-                path: '/available-events',
-                component: () => import('@/pages/dashboard/pages/Events.vue'),
+                component: () => import('@/views/dashboard/Events/index.vue'),
                 meta: { requiresAuth: true },
             },
         ],
     },
     {
         path: '/login',
-        component: () => import('@/pages/login/index.vue'),
+        component: () => import('@/views/login/index.vue'),
     },
 ]
