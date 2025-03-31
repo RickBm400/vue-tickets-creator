@@ -17,7 +17,14 @@ const _userName = 'Ricardo'
         <nav></nav>
         <div class="dashboard-content grid grid-flow-col grid-cols-10">
             <div class="col-span-7 space-y-4 flex flex-col">
-                <Card class="welcome--card flex-none">
+                <Card
+                    class="welcome--card grid items-center"
+                    :pt="{
+                        body: {
+                            class: 'grid items-center',
+                        },
+                    }"
+                >
                     <template #title>
                         <h1 class="welcome--title">
                             {{ t('message.goodMorning') }} <br />
@@ -28,8 +35,9 @@ const _userName = 'Ricardo'
                         </p>
                     </template>
                 </Card>
-                <section class="recent--tickets grow flex flex-col h-[400px]">
+                <section class="recent--tickets grow flex flex-col h-[400px] space-y-6">
                     <h2 class="section-title">Recent Events</h2>
+                    <div>inputs</div>
                     <div class="tickets-list space-y-4 grow overflow-y-scroll">
                         <Ticket />
                         <Ticket />
@@ -62,4 +70,7 @@ const _userName = 'Ricardo'
 .section-title
     font-size: 1.5rem
     font-weight: 500
+
+.tickets-list::-webkit-scrollbar
+    display: none
 </style>

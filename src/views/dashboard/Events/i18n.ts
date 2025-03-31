@@ -6,7 +6,7 @@ export const dashboardI18n = {
     },
     en: {
         content: {
-            titleContent: 'Take a look at your most recent projects.',
+            titleContent: 'Take a look at your most recent events.',
         },
     },
 }
