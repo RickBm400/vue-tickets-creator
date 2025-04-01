@@ -14,7 +14,7 @@ import Card from 'primevue/card'
             <img class="col-span-1" alt="ticket_image" src="/login/login_background.jpg" />
         </template>
         <template #content>
-            <div class="event flex">
+            <div class="event">
                 <div class="event-header flex flex-col">
                     <h3 class="event-title">Don Toliver</h3>
                     <p class="event-description">
@@ -22,7 +22,7 @@ import Card from 'primevue/card'
                         California
                     </p>
                 </div>
-                <div class="event-info ml-auto flex items-center gap-6">
+                <div class="event-info mt-2 flex items-center gap-6">
                     <div>
                         <h4>March 12</h4>
                         <p>3:30 PM</p>
@@ -52,9 +52,9 @@ $gray-variant-local: #928888
     padding: 0px
     overflow: hidden
     .event
-        padding: 24px
-        flex-grow: 1
+        padding-inline: 24px
         height: 100%
+        flex-grow: 1
         &-title
             @include secondary-font(48px)
             color: black

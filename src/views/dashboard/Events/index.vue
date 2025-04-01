@@ -13,43 +13,38 @@ locale.value = 'en'
 const _userName = 'Ricardo'
 </script>
 <template>
-    <div id="container" class="h-full grid grid-rows-[64px_1fr] px-8 py-4">
-        <nav></nav>
-        <div class="dashboard-content grid grid-flow-col grid-cols-10">
-            <div class="col-span-7 space-y-4 flex flex-col">
-                <Card
-                    class="welcome--card grid items-center"
-                    :pt="{
-                        body: {
-                            class: 'grid items-center',
-                        },
-                    }"
-                >
-                    <template #title>
-                        <h1 class="welcome--title">
-                            {{ t('message.goodMorning') }} <br />
-                            {{ _userName }} !
-                        </h1>
-                        <p>
-                            {{ t('content.titleContent') }}
-                        </p>
-                    </template>
-                </Card>
-                <section class="recent--tickets grow flex flex-col h-[400px] space-y-6">
-                    <h2 class="section-title">Recent Events</h2>
-                    <div>inputs</div>
-                    <div class="tickets-list space-y-4 grow overflow-y-scroll">
-                        <Ticket />
-                        <Ticket />
-                        <Ticket />
-                        <Ticket />
-                        <Ticket />
-                        <Ticket />
-                        <Ticket />
-                    </div>
-                </section>
+    <!-- content grid -->
+    <div class="grid grid-flow-col grid-cols-12 gap-8">
+        <div class="col-span-8 flex flex-col h-screen py-6">
+            <Card
+                class="welcome--card flex-shrink-0 col-span-2"
+                :pt="{
+                    body: {
+                        class: 'grid items-center',
+                    },
+                }"
+            >
+                <template #title>
+                    <h1 class="welcome--title">
+                        {{ t('message.goodMorning') }} <br />
+                        {{ _userName }} !
+                    </h1>
+                    <p>
+                        {{ t('content.titleContent') }}
+                    </p>
+                </template>
+            </Card>
+            <div>
+                <span id="filtros">filtros</span>
+                <br />
+                <span id="">csdc</span>
             </div>
-            <div class="dashboard-utils col-span-3"></div>
+            <div class="tickets-list space-y-4 overflow-y-scroll">
+                <Ticket v-for="i = 0 in 8" :key="i" />
+            </div>
+        </div>
+        <div class="h-screen col-span-4 py-6">
+            olamundo
         </div>
     </div>
 </template>
