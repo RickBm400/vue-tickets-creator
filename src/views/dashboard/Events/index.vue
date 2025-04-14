@@ -1,12 +1,10 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { dashboardI18n } from './i18n'
 import Card from 'primevue/card'
 import Ticket from '@/components/Ticket.vue'
 
 const { t, locale } = useI18n({
     useScope: 'global',
-    messages: dashboardI18n,
 })
 locale.value = 'en'
 
@@ -24,20 +22,18 @@ const _userName = 'Ricardo'
                     },
                 }"
             >
-                <template #title>
+                <template #content>
                     <h1 class="welcome--title">
-                        {{ t('message.goodMorning') }} <br />
+                        {{ t('dashboard.goodMorning') }} <br />
                         {{ _userName }} !
                     </h1>
                     <p>
-                        {{ t('content.titleContent') }}
+                        {{ t('dashboard.titleContent') }}
                     </p>
                 </template>
             </Card>
             <div>
-                <span id="filtros">filtros</span>
-                <br />
-                <span id="">csdc</span>
+                Bar
             </div>
             <div class="tickets-list space-y-4 overflow-y-scroll">
                 <Ticket v-for="i = 0 in 8" :key="i" />
@@ -55,6 +51,8 @@ const _userName = 'Ricardo'
 .welcome--card
     color: white
     line-height: 56px
+    display: flex
+    justify-content: center
     height: 265px
     padding: 18px
     border-radius: 24px
