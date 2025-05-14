@@ -2,6 +2,8 @@
 import { useI18n } from 'vue-i18n'
 import Card from 'primevue/card'
 import Ticket from '@/components/Ticket.vue'
+import { DatePicker } from 'primevue'
+import SearchBarComponent from '@/components/Search-bar.component.vue'
 
 const { t, locale } = useI18n({
     useScope: 'global',
@@ -33,14 +35,14 @@ const _userName = 'Ricardo'
                 </template>
             </Card>
             <div>
-                Bar
+                <SearchBarComponent />
             </div>
             <div class="tickets-list space-y-4 overflow-y-scroll">
                 <Ticket v-for="i = 0 in 8" :key="i" />
             </div>
         </div>
         <div class="h-screen col-span-4 py-6">
-            olamundo
+            <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
         </div>
     </div>
 </template>
