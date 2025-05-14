@@ -4,7 +4,7 @@ import Card from 'primevue/card'
 const mediaImgs = [
     'https://media.revistagq.com/photos/60e2d1ba27e8735e0f6e91c2/16:9/w_2560%2Cc_limit/GettyImages-1196636627.jpg',
     'https://media.wonderlandmagazine.com/uploads/2023/08/BLK_ODYSSY_-132-scaled.jpg',
-    'https://25gramos.com/wp-content/uploads/2019/10/25-Gramos-Astroworld-Festival.jpg'
+    'https://25gramos.com/wp-content/uploads/2019/10/25-Gramos-Astroworld-Festival.jpg',
 ]
 
 const imageDialog = Math.round(2 * Math.random())
@@ -63,8 +63,8 @@ const imageDialog = Math.round(2 * Math.random())
 @use '../assets/presets/_fonts' as *
 
 $ticket-height: 196px
-$gray-variant-local: #928888
 $black-variant-local: #353535
+$local-gray: #928888
 
 .ticket-card
     height: $ticket-height
@@ -81,7 +81,7 @@ $black-variant-local: #353535
         &-description
             @include secondary-font(14px)
             padding-top: 4px
-            color: $gray-variant-local
+            color: $local-gray
             line-height: 1rem
         .event-info
             div
@@ -90,7 +90,7 @@ $black-variant-local: #353535
                     color: $black-variant-local
                 p
                     @include secondary-font(14px)
-                    color: $gray-variant-local
+                    color: var(--background-gray-variant)
         .time-info *
             @include secondary-font()
         .time-info
@@ -99,7 +99,7 @@ $black-variant-local: #353535
                 font-size: 3rem
                 line-height: 3rem
             span:nth-child(3)
-                color: $gray-variant-local
+                color: $local-gray
                 font-size: 3rem
                 line-height: 3rem
             span:nth-child(5)
@@ -111,5 +111,5 @@ $black-variant-local: #353535
         width: 100%
         height: $ticket-height
         object-fit: cover
-        object-position: 100% 
+        object-position: 100%
 </style>
