@@ -15,18 +15,18 @@ const router = createRouter({
     routes,
 })
 
-router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth && !token && to.path !== '/login') {
-        next({
-            path: '/login',
-        })
-    } else if (to.path == '/login' && token) {
-        next({
-            path: '/',
-        })
-    } else {
-        next()
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     if (to.meta.requiresAuth && !token && to.path !== '/login') {
+//         next({
+//             path: '/login',
+//         })
+//     } else if (to.path == '/login' && token) {
+//         next({
+//             path: '/',
+//         })
+//     } else {
+//         next()
+//     }
+// })
 
 export default router

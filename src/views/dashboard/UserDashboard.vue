@@ -1,12 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import LeftSideVar from '@/layouts/LeftSideVar.vue'
+import LeftSideBar from '@/layouts/LeftSideBar.vue'
 </script>
 <template>
-  <div class="grid grid-cols-24 gap-8 w-screen h-screen">
-    <LeftSideVar :root-class="'px-4 py-6 col-span-4'" />
-    <main class="col-span-20 w-vh h-screen">
-      <RouterView />
-    </main>
-  </div>
+    <div class="px-8 py-10 grid grid-cols-24 h-screen gap-6">
+        <LeftSideBar :root-class="'col-span-4'" />
+        <RouterView class="col-span-20" />
+        <!-- <main class="col-span-20"></main> -->
+    </div>
 </template>
