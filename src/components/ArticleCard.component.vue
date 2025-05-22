@@ -1,20 +1,16 @@
 <script setup>
 import { ref } from 'vue'
 import { Card } from 'primevue'
-// const props = defineProps({})
-const contentTestList = ref([
-    {
-        title: 'Jaden Smith in loola palooza',
-        description:
-            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
-    },
-])
+const props = defineProps({
+    title: String,
+    description: String,
+    image: String,
+    image_alt: String,
+})
 </script>
 <template>
     <Card
-        v-for="({ title, description }, index) in contentTestList"
-        :key="index"
-        class="media-card solid-border"
+        class="media-card"
         :pt="{
             body: { class: 'p-0 h-[115px]' },
             content: {
@@ -24,16 +20,16 @@ const contentTestList = ref([
     >
         <template #content>
             <img
-                src="https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg"
-                alt="syre"
+                :src="props.image"
+                :alt="props.image_alt"
                 class="rounded-[8px] w-[94px] h-[94px]"
             />
             <div class="basis-1 grow flex flex-col justify-center object-cover">
                 <h4 class="media-card-header">
-                    {{ title }}
+                    {{ props.title }}
                 </h4>
                 <p class="media-card-content">
-                    {{ description }}
+                    {{ props.description }}
                 </p>
             </div>
         </template>

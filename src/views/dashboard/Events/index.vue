@@ -3,12 +3,71 @@ import TicketComponent from '@/components/Ticket.component.vue'
 import SearchBarComponent from '@/components/SearchBar.component.vue'
 import ArticleCardComponent from '@/components/ArticleCard.component.vue'
 import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
 import { DatePicker } from 'primevue'
 import Card from 'primevue/card'
 
 const { t, locale } = useI18n({
     useScope: 'global',
 })
+const contentTestList = ref([
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+    {
+        title: 'Jaden Smith in loola palooza',
+        description:
+            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
+        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
+        image_alt: 'syre',
+    },
+])
 locale.value = 'en'
 
 const _userName = 'Ricardo'
@@ -35,18 +94,31 @@ const _userName = 'Ricardo'
                     </p>
                 </template>
             </Card>
-            <div class="">
+            <div>
                 <SearchBarComponent />
             </div>
             <div class="tickets-list space-y-4 overflow-y-scroll basis-1 grow">
                 <TicketComponent v-for="i = 0 in 8" :key="i" />
             </div>
         </div>
-        <div class="hidden md:xl:col-span-6 md:xl:inline-block">
-            <h3 class="content-header-h3">Calendar</h3>
-            <DatePicker inline showWeek class="w-full" />
-            <h3 class="content-header-h3">Community</h3>
-            <ArticleCardComponent />
+        <div class="hidden right-actions-bar">
+            <div>
+                <h3 class="content-header-h3">Calendar</h3>
+                <DatePicker inline showWeek class="w-full" />
+            </div>
+            <div class="basis-1 grow flex flex-col">
+                <h3 class="content-header-h3">Community</h3>
+                <div class="basis-1 grow overflow-y-scroll space-y-4">
+                    <ArticleCardComponent
+                        v-for="(item, index) in contentTestList"
+                        :key="index"
+                        :title="item.title"
+                        :description="item.description"
+                        :image="item.image"
+                        :image_alt="item.image_alt"
+                    />
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -72,4 +144,8 @@ const _userName = 'Ricardo'
 
 .tickets-list::-webkit-scrollbar
     display: none
+
+@media (width >= 80rem)
+    .right-actions-bar
+        @apply col-span-6 flex flex-col basis-1 grow
 </style>
