@@ -11,7 +11,7 @@ const imageDialog = Math.round(2 * Math.random())
 </script>
 <template>
     <Card
-        class="ticket-card flex bg-[#F9F9F9]"
+        class="ticket-card flex bg-[#F9F9F9] solid-border"
         :pt="{
             body: {
                 class: 'p-0 flex h-full',
@@ -71,7 +71,6 @@ $local-gray: #928888
     padding: 0px
     overflow: hidden
     border-radius: 8px
-    border: 1px solid #DDDDDD
     .event
         padding-inline: 24px
         &-title

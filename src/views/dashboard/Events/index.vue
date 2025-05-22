@@ -1,9 +1,10 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-import Card from 'primevue/card'
 import TicketComponent from '@/components/Ticket.component.vue'
+import SearchBarComponent from '@/components/SearchBar.component.vue'
+import ArticleCardComponent from '@/components/ArticleCard.component.vue'
+import { useI18n } from 'vue-i18n'
 import { DatePicker } from 'primevue'
-import SearchBarComponent from '@/components/Search-bar.component.vue'
+import Card from 'primevue/card'
 
 const { t, locale } = useI18n({
     useScope: 'global',
@@ -42,9 +43,10 @@ const _userName = 'Ricardo'
             </div>
         </div>
         <div class="hidden md:xl:col-span-6 md:xl:inline-block">
-            <h3>Calendar</h3>
+            <h3 class="content-header-h3">Calendar</h3>
             <DatePicker inline showWeek class="w-full" />
-            <h3>Community</h3>
+            <h3 class="content-header-h3">Community</h3>
+            <ArticleCardComponent />
         </div>
     </div>
 </template>

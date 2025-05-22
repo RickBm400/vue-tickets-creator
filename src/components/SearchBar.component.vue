@@ -4,7 +4,7 @@ import { InputText } from 'primevue'
 <template>
     <div class="h-[80px] grid grid-flow-col grid-cols-2 items-center">
         <InputText
-            class="search-input-field"
+            class="search-input-field solid-border"
             type="test"
             name="search-criteria"
             placeholder="Search Event"
@@ -18,7 +18,6 @@ import { InputText } from 'primevue'
 </template>
 <style scoped lang="sass">
 .search-input-field
-    border: 1px solid #DDDDDD
     background-color: var(--background-gray-variant)
 .pi
     color: var(--gray-variant)
