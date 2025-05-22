@@ -11,46 +11,48 @@ const imageDialog = Math.round(2 * Math.random())
 </script>
 <template>
     <Card
-        class="ticket-card grid grid-flow-col bg-[#F9F9F9] grid-cols-3"
+        class="ticket-card flex bg-[#F9F9F9]"
         :pt="{
             body: {
-                class: 'p-0 col-span-2 grow',
+                class: 'p-0 flex h-full',
             },
             content: {
-                class: 'event flex h-full px-[42px] py-6 items-center',
+                class: 'event flex h-full',
             },
         }"
     >
-        <template #header>
-            <img class="col-span-1" alt="ticket_image" :src="mediaImgs[imageDialog]" />
-        </template>
+        <!-- <template #header>
+        </template> -->
         <template #content>
-            <div class="flex flex-col h-full">
-                <div class="event-header flex flex-col">
-                    <h3 class="event-title">Don Toliver</h3>
-                    <p class="event-description">Sacramento - California</p>
+            <img class="" alt="ticket_image" :src="mediaImgs[imageDialog]" />
+            <div class="px-[42px] py-6 flex grow">
+                <div class="flex flex-col">
+                    <div class="event-header flex flex-col">
+                        <h3 class="event-title">Don Toliver</h3>
+                        <p class="event-description">Sacramento - California</p>
+                    </div>
+                    <div class="event-info flex items-center gap-6 mt-auto">
+                        <div>
+                            <h4>Cosmopolitan</h4>
+                            <p>San Juan</p>
+                        </div>
+                        <div>
+                            <h4>H-405</h4>
+                            <p>ANGAR 3</p>
+                        </div>
+                        <div>
+                            <h4>Platino</h4>
+                            <p>$1000 COP</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="event-info flex items-center gap-6 mt-auto">
-                    <div>
-                        <h4>Cosmopolitan</h4>
-                        <p>San Juan</p>
-                    </div>
-                    <div>
-                        <h4>H-405</h4>
-                        <p>ANGAR 3</p>
-                    </div>
-                    <div>
-                        <h4>Platino</h4>
-                        <p>$1000 COP</p>
-                    </div>
+                <div class="ml-auto">
+                    <p class="flex flex-col items-center justify-center h-full time-info">
+                        <span>06</span>
+                        <span>Apr</span>
+                        <span>19:40PM</span>
+                    </p>
                 </div>
-            </div>
-            <div class="ml-auto">
-                <p class="text-center time-info">
-                    <span>06</span><br />
-                    <span>Apr</span><br />
-                    <span>19:40PM</span>
-                </p>
             </div>
         </template>
     </Card>
@@ -72,7 +74,6 @@ $local-gray: #928888
     border: 1px solid #DDDDDD
     .event
         padding-inline: 24px
-        height: 100%
         &-title
             @include secondary-font(40px)
             color: $black-variant-local
@@ -97,18 +98,16 @@ $local-gray: #928888
                 color: $black-variant-local
                 font-size: 3rem
                 line-height: 3rem
-            span:nth-child(3)
+            span:nth-child(2)
                 color: $local-gray
                 font-size: 3rem
                 line-height: 3rem
-            span:nth-child(5)
+            span:nth-child(3)
                 color: $black-variant-local
 
-
-
     img
-        width: 100%
-        height: $ticket-height
+        width: 359px
+        height: 100%
         object-fit: cover
         object-position: 100%
 </style>

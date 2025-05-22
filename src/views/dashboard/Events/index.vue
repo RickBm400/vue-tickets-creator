@@ -14,8 +14,8 @@ const _userName = 'Ricardo'
 </script>
 <template>
     <!-- content grid -->
-    <div class="grid grid-flow-col grid-cols-12 gap-6">
-        <div class="col-span-8 flex flex-col">
+    <div class="grid grid-flow-col grid-cols-20 gap-6">
+        <div class="col-span-20 md:xl:col-span-14 flex flex-col">
             <Card
                 class="welcome--card col-span-2"
                 :pt="{
@@ -41,8 +41,10 @@ const _userName = 'Ricardo'
                 <TicketComponent v-for="i = 0 in 8" :key="i" />
             </div>
         </div>
-        <div class="col-span-4">
-            <DatePicker v-model="date" inline showWeek class="w-full sm:w-[30rem]" />
+        <div class="hidden md:xl:col-span-6 md:xl:inline-block">
+            <h3>Calendar</h3>
+            <DatePicker inline showWeek class="w-full" />
+            <h3>Community</h3>
         </div>
     </div>
 </template>
