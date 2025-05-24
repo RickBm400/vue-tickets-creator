@@ -24,7 +24,9 @@ const imageDialog = Math.round(2 * Math.random())
         <!-- <template #header>
         </template> -->
         <template #content>
-            <img class="" alt="ticket_image" :src="mediaImgs[imageDialog]" />
+            <div class=" m-2 mr-0  rounded-[4px] overflow-hidden">
+                <img alt="ticket_image" :src="mediaImgs[imageDialog]" />
+            </div>
             <div class="px-[42px] py-6 flex grow">
                 <div class="flex flex-col">
                     <div class="event-header flex flex-col">

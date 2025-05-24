@@ -44,6 +44,7 @@ const props = defineProps({
     &-header
         @include secondary-font(24px)
         line-height: 24px
+        width: 180px
     &-content
         font-size: .8rem
         line-height: 1rem

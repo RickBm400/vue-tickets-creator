@@ -60,13 +60,6 @@ const contentTestList = ref([
         image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
         image_alt: 'syre',
     },
-    {
-        title: 'Jaden Smith in loola palooza',
-        description:
-            'Jaden is bringing hos unique vibe to light up the stage with his biggest hitscsdjnckjsnkdcsnjkdcnsckjdsncksnjdjkcnskdncksdnkcsndkcnskncksdncksndkcsnd',
-        image: 'https://i.pinimg.com/736x/fb/9a/8b/fb9a8bc768fb5be8607889d292ee3d75.jpg',
-        image_alt: 'syre',
-    },
 ])
 locale.value = 'en'
 
@@ -97,18 +90,18 @@ const _userName = 'Ricardo'
             <div>
                 <SearchBarComponent />
             </div>
-            <div class="tickets-list space-y-4 overflow-y-scroll basis-1 grow">
+            <div class="hide-scrollbar space-y-4 overflow-y-scroll basis-1 grow">
                 <TicketComponent v-for="i = 0 in 8" :key="i" />
             </div>
         </div>
-        <div class="hidden right-actions-bar">
+        <div class="hidden right-actions-bar space-y-12">
             <div>
                 <h3 class="content-header-h3">Calendar</h3>
                 <DatePicker inline showWeek class="w-full" />
             </div>
             <div class="basis-1 grow flex flex-col">
                 <h3 class="content-header-h3">Community</h3>
-                <div class="basis-1 grow overflow-y-scroll space-y-4">
+                <div class="article-list basis-1 scroll grow overflow-y-scroll space-y-4 hide-scrollbar">
                     <ArticleCardComponent
                         v-for="(item, index) in contentTestList"
                         :key="index"
@@ -141,9 +134,6 @@ const _userName = 'Ricardo'
 .section-title
     font-size: 1.5rem
     font-weight: 500
-
-.tickets-list::-webkit-scrollbar
-    display: none
 
 @media (width >= 80rem)
     .right-actions-bar
