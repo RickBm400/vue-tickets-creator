@@ -24,7 +24,7 @@ const props = defineProps({
                 :alt="props.image_alt"
                 class="rounded-[8px] w-[94px] h-[94px]"
             />
-            <div class="basis-1 grow flex flex-col justify-center object-cover">
+            <div class="basis-1 grow flex flex-col justify-center">
                 <h4 class="media-card-header">
                     {{ props.title }}
                 </h4>
