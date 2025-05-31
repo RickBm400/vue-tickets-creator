@@ -71,11 +71,7 @@ const _userName = 'Ricardo'
         <div class="col-span-20 md:xl:col-span-14 flex flex-col">
             <Card
                 class="welcome--card col-span-2"
-                :pt="{
-                    body: {
-                        class: 'grid items-center',
-                    },
-                }"
+                pt:body:class="grid items-center"
             >
                 <template #content>
                     <h1 class="welcome--title">
@@ -124,7 +120,8 @@ const _userName = 'Ricardo'
     line-height: 56px
     display: flex
     justify-content: center
-    height: 256px
+    height: auto
+    // height: 256px
     padding: 18px
     border-radius: 24px
     background: linear-gradient(to right, #000000, #842C2C)
