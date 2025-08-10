@@ -1,3 +1,55 @@
+<template>
+    <!-- content grid -->
+    <div class="grid grid-flow-col grid-cols-20 gap-6">
+        <div class="col-span-20 md:xl:col-span-14 flex flex-col">
+            <Card
+                class="welcome--card col-span-2"
+                :pt="{
+                    body: {
+                        class: 'grid items-center',
+                    },
+                }"
+            >
+                <template #content>
+                    <h1 class="welcome--title">
+                        {{ t('dashboard.goodMorning') }} <br />
+                        {{ _userName }} !
+                    </h1>
+                    <p>
+                        {{ t('dashboard.titleContent') }}
+                    </p>
+                </template>
+            </Card>
+            <div>
+                <SearchBarComponent />
+            </div>
+            <div class="hide-scrollbar space-y-4 overflow-y-scroll basis-1 grow">
+                <TicketComponent v-for="i = 0 in 8" :key="i" />
+            </div>
+        </div>
+        <div class="hidden right-actions-bar space-y-12">
+            <div>
+                <h3 class="content-header-h3">Calendar</h3>
+                <DatePicker inline showWeek class="w-full" />
+            </div>
+            <div class="basis-1 grow flex flex-col">
+                <h3 class="content-header-h3">Community</h3>
+                <div
+                    class="article-list basis-1 scroll grow overflow-y-scroll space-y-4 hide-scrollbar"
+                >
+                    <ArticleCardComponent
+                        v-for="(item, index) in contentTestList"
+                        :key="index"
+                        :title="item.title"
+                        :description="item.description"
+                        :image="item.image"
+                        :image_alt="item.image_alt"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 <script setup>
 import TicketComponent from '@/components/Ticket.component.vue'
 import SearchBarComponent from '@/components/SearchBar.component.vue'
@@ -65,52 +117,6 @@ locale.value = 'en'
 
 const _userName = 'Ricardo'
 </script>
-<template>
-    <!-- content grid -->
-    <div class="grid grid-flow-col grid-cols-20 gap-6">
-        <div class="col-span-20 md:xl:col-span-14 flex flex-col">
-            <Card
-                class="welcome--card col-span-2"
-                pt:body:class="grid items-center"
-            >
-                <template #content>
-                    <h1 class="welcome--title">
-                        {{ t('dashboard.goodMorning') }} <br />
-                        {{ _userName }} !
-                    </h1>
-                    <p>
-                        {{ t('dashboard.titleContent') }}
-                    </p>
-                </template>
-            </Card>
-            <div>
-                <SearchBarComponent />
-            </div>
-            <div class="hide-scrollbar space-y-4 overflow-y-scroll basis-1 grow">
-                <TicketComponent v-for="i = 0 in 8" :key="i" />
-            </div>
-        </div>
-        <div class="hidden right-actions-bar space-y-12">
-            <div>
-                <h3 class="content-header-h3">Calendar</h3>
-                <DatePicker inline showWeek class="w-full" />
-            </div>
-            <div class="basis-1 grow flex flex-col">
-                <h3 class="content-header-h3">Community</h3>
-                <div class="article-list basis-1 scroll grow overflow-y-scroll space-y-4 hide-scrollbar">
-                    <ArticleCardComponent
-                        v-for="(item, index) in contentTestList"
-                        :key="index"
-                        :title="item.title"
-                        :description="item.description"
-                        :image="item.image"
-                        :image_alt="item.image_alt"
-                    />
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
 <style scoped lang="sass">
 .welcome--title
     font-size: 3.5rem
@@ -120,8 +126,7 @@ const _userName = 'Ricardo'
     line-height: 56px
     display: flex
     justify-content: center
-    height: auto
-    // height: 256px
+    height: 256px
     padding: 18px
     border-radius: 24px
     background: linear-gradient(to right, #000000, #842C2C)
